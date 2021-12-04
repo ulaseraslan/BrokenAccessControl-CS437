@@ -7,7 +7,7 @@ function View(){
     return (
         <html>
         <div className="App">
-            {(UserStore.userId.groups.name === "admin")&& (
+            {(UserStore.userId  === "admin")&& (
                 <header className="App-header">
                     <img src={"https://c.tenor.com/Er8GuCI8O_QAAAAM/the-simpsons-excellent.gif"} alt=""/>
                 </header>

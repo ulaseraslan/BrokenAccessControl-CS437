@@ -64,22 +64,21 @@ class Login extends Component {
 
 
         if (Object.keys(errors).length === 0) {
-            const url="http://localhost:8080/login";
+            const url="http://localhost:3000/users/";
                 //console.log("BURDAYIM")
                 Axios.post(url,{
                     email: data_signin.email,
-                    password: data_signin.password,
-                    where: "W",
+                    password: data_signin.password
                 })
                     .then(res=>{
                         //console.log(res)
                         if (res.status===200) {
                             UserStore.isLoggedIn=true;
                             UserStore.email=data_signin.email;
-                            UserStore.userId = res.data;
-                            //console.log("PRODUCT")
-                            if (UserStore.userId.groups.name === "user"){this.props.history.push("/home");}
-                            else if (UserStore.userId.groups.name === "admin"){this.props.history.push("/manager_view");}
+                            UserStore.userId = res.data[0].fields.username;
+                            console.log(res.data[0].fields.username)
+                            if (res.data[0].fields.username === "user"){this.props.history.push("/home");}
+                            else if (res.data[0].fields.username === "admin"){this.props.history.push("/manager_view");}
                         }
                         else {
                             if (res.status === 400) {
@@ -87,6 +86,7 @@ class Login extends Component {
                                 alert("Wrong e-mail or password!");
                             }
                             else {
+                                console.log(res)
                                 alert("Something went wrong!");
                             }
                         }
