@@ -65,7 +65,6 @@ class Login extends Component {
 
         if (Object.keys(errors).length === 0) {
             const url="http://localhost:8080/login";
-            if(data_signin.email === "product_manager@bookstore.com"){
                 //console.log("BURDAYIM")
                 Axios.post(url,{
                     email: data_signin.email,
@@ -79,7 +78,8 @@ class Login extends Component {
                             UserStore.email=data_signin.email;
                             UserStore.userId = res.data;
                             //console.log("PRODUCT")
-                            this.props.history.push("/p");
+                            if (UserStore.userId === "user"){this.props.history.push("/home");}
+                            else if (UserStore.userId === "admin"){this.props.history.push("/manager_view");}
                         }
                         else {
                             if (res.status === 400) {
@@ -98,66 +98,6 @@ class Login extends Component {
                         alert("Wrong e-mail or password!");
                     })
 
-            }
-            else if(data_signin.email === "sales_manager@bookstore.com"){
-                Axios.post(url,{
-                    email: data_signin.email,
-                    password: data_signin.password,
-                    where: "W",
-                })
-                    .then(res=>{
-                        //console.log(res)
-                        if (res.status===200) {
-                            UserStore.isLoggedIn=true;
-                            UserStore.email=data_signin.email;
-                            UserStore.userId = res.data;
-                            //console.log("SALES")
-                            this.props.history.push("/s");
-                        }
-                        else {
-                            if (res.status === 400) {
-                                this.resetForm();
-                                alert("Wrong e-mail or password!");
-                            }
-                            else {
-                                alert("Something went wrong!");
-                            }
-                        }
-
-                    }).catch((error) => {
-                    console.log(error);
-                    alert("Wrong e-mail or password!");
-                })
-            }
-            else {
-                Axios.post(url,{
-                    email: data_signin.email,
-                    password: data_signin.password,
-                    where: "W",
-                })
-                    .then(res=>{
-                        //console.log(res)
-                        if (res.status===200) {
-                            UserStore.isLoggedIn=true;
-                            UserStore.email=data_signin.email;
-                            UserStore.userId = res.data;
-                            this.props.history.push("/");
-                        }
-                        else {
-                            if (res.status === 400) {
-                                this.resetForm();
-                                alert("Wrong e-mail or password!");
-                            }
-                            else {
-                                alert("Something went wrong!");
-                            }
-                        }
-
-                    }).catch((error) => {
-                    console.log(error);
-                    alert("Wrong e-mail or password!");
-                })
-            }
 
         } else {
             this.setState({ errors });

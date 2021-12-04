@@ -84,7 +84,7 @@ class Forget extends Component {
 
                     <div className="loginForm">
                         <Link to="/">
-                            <img src="/images/bookstore.PNG" className="center"/>
+                            <img src="/images/home.jpg" className="center"/>
                         </Link>
                         <h1>Forgot Password</h1>
                         <Form onSubmit={this.handleSubmit}>

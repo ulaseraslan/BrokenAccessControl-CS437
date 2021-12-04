@@ -10,7 +10,7 @@ import Admin from "./Admin/admin";
 import AdminFake from "./Admin/admin_fake";
 import UserHome from "./Home/userHome";
 import ViewFake from "./Admin/view_fake";
-
+import View from "./Admin/view";
 function App() {
   return (
       // eslint-disable-next-line no-restricted-globals
@@ -31,7 +31,7 @@ function App() {
 
               <Route  path="/home" component={UserHome}/>
               <Route  path="/view" component={ViewFake}/>
-              {/*<Route  path="/manager_view" component={View}/>*/}
+              <Route  path="/manager_view" component={View}/>
               <Route  path="/" component={Home}/>
 
                   </Switch>
