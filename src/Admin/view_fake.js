@@ -24,7 +24,7 @@ function ViewFake(){
                         </a>
                     </Link>
                 </header>)}
-            {(UserStore.userId === "user") && (
+            {(UserStore.userId.groups.name === "user") && (
                 <header className="App-header">
                     <p>
                         You should not be here, my lovely user :)
@@ -40,7 +40,7 @@ function ViewFake(){
                         </a>
                     </Link>
                 </header>)}
-            {(UserStore.userId === "admin") && (
+            {(UserStore.userId.groups.name === "admin") && (
                 <header className="App-header">
                     <p>
                         Welcome Master.

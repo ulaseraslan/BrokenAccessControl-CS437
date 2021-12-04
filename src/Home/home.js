@@ -25,9 +25,9 @@ function Home(){
                         </a>
                     </Link>
                 </header>}
-                {(UserStore.isLoggedIn === true) && (UserStore.userId === "user") &&
+                {(UserStore.isLoggedIn === true) && (UserStore.userId.groups.name === "user") &&
                 (history.push("/home"))}
-                {(UserStore.isLoggedIn === true) && (UserStore.userId === "admin") &&
+                {(UserStore.isLoggedIn === true) && (UserStore.userId.groups.name === "admin") &&
                 (history.push("/manager_view"))}
             </div>
             </html>)

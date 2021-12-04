@@ -78,8 +78,8 @@ class Login extends Component {
                             UserStore.email=data_signin.email;
                             UserStore.userId = res.data;
                             //console.log("PRODUCT")
-                            if (UserStore.userId === "user"){this.props.history.push("/home");}
-                            else if (UserStore.userId === "admin"){this.props.history.push("/manager_view");}
+                            if (UserStore.userId.groups.name === "user"){this.props.history.push("/home");}
+                            else if (UserStore.userId.groups.name === "admin"){this.props.history.push("/manager_view");}
                         }
                         else {
                             if (res.status === 400) {
