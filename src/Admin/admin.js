@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import UserStore from "../login-signup/UserStore";
 
 function Admin(){
 
@@ -7,9 +8,11 @@ function Admin(){
         <html>
         <div className="App">
             <header className="App-header">
-                <p>
+                {UserStore.userId !== "admin" ? <p>
                     Well, you got me. I surrender.
-                </p>
+                </p> : <p>
+                    I love you, master.
+                </p> }
                 <Link to="/view">
                     <a
                         className="App-link"

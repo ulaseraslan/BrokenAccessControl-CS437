@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 function Home(){
     let history = useHistory();
+
     return (
             <html>
             <div className="App">
@@ -25,9 +26,9 @@ function Home(){
                         </a>
                     </Link>
                 </header>}
-                {(UserStore.isLoggedIn === true) && (UserStore.userId.groups.name === "user") &&
+                {(UserStore.isLoggedIn === true) && (UserStore.userId === "user") &&
                 (history.push("/home"))}
-                {(UserStore.isLoggedIn === true) && (UserStore.userId.groups.name === "admin") &&
+                {(UserStore.isLoggedIn === true) && (UserStore.userId === "admin") &&
                 (history.push("/manager_view"))}
             </div>
             </html>)

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import UserStore from "../login-signup/UserStore";
 
 function AdminFake(){
 
@@ -7,9 +8,11 @@ function AdminFake(){
         <html>
         <div className="App">
             <header className="App-header">
-                <p>
+                {UserStore.userId !== "admin" ? <p>
                     Not that easy honey. Try again.
-                </p>
+                </p> : <p>
+                    Wrong url, master.
+                </p> }
                 <Link to="/">
                     <a
                         className="App-link"

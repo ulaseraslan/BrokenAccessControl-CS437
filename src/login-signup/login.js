@@ -64,39 +64,39 @@ class Login extends Component {
 
 
         if (Object.keys(errors).length === 0) {
-            const url="http://localhost:3000/users/";
-                //console.log("BURDAYIM")
-                Axios.post(url,{
-                    email: data_signin.email,
-                    password: data_signin.password
-                })
-                    .then(res=>{
-                        //console.log(res)
-                        if (res.status===200) {
-                            UserStore.isLoggedIn=true;
-                            UserStore.email=data_signin.email;
-                            UserStore.userId = res.data[0].fields.username;
-                            console.log(res.data[0].fields.username)
-                            if (res.data[0].fields.username === "user"){this.props.history.push("/home");}
-                            else if (res.data[0].fields.username === "admin"){this.props.history.push("/manager_view");}
+            const url="http://localhost:8000/users/";
+            //console.log("BURDAYIM")
+            Axios.post(url,{
+                email: data_signin.email,
+                password: data_signin.password
+            })
+                .then(res=>{
+                    //console.log(res)
+                    if (res.status===200) {
+                        UserStore.isLoggedIn=true;
+                        UserStore.email=data_signin.email;
+                        UserStore.userId = res.data[0].fields.username;
+                        sessionStorage.setItem('user', res.data[0].fields.username)
+                        if (res.data[0].fields.username === "user"){this.props.history.push("/home");}
+                        else if (res.data[0].fields.username === "admin"){this.props.history.push("/view");}
+                    }
+                    else {
+                        if (res.status === 400) {
+                            this.resetForm();
+                            alert("Wrong e-mail or password!");
                         }
                         else {
-                            if (res.status === 400) {
-                                this.resetForm();
-                                alert("Wrong e-mail or password!");
-                            }
-                            else {
-                                console.log(res)
-                                alert("Something went wrong!");
-                            }
+                            console.log(res)
+                            alert("Something went wrong!");
                         }
+                    }
 
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                        //console.log("Tamam da niye burdasın")
-                        alert("Wrong e-mail or password!");
-                    })
+                })
+                .catch((error) => {
+                    console.log(error);
+                    //console.log("Tamam da niye burdasın")
+                    alert("Wrong e-mail or password!");
+                })
 
 
         } else {

@@ -11,8 +11,17 @@ import AdminFake from "./Admin/admin_fake";
 import UserHome from "./Home/userHome";
 import ViewFake from "./Admin/view_fake";
 import View from "./Admin/view";
+import {useEffect, useState} from "react";
+import UserStore from "./login-signup/UserStore";
+
+
 function App() {
-  return (
+    const [value, setValue] = useState(sessionStorage.getItem('user') || '-2');
+    UserStore.userId = value;
+    if (UserStore.userId !== '-2'){
+        UserStore.isLoggedIn = true;
+    }
+    return (
       // eslint-disable-next-line no-restricted-globals
       <Router history={history}>
               <div className="app">

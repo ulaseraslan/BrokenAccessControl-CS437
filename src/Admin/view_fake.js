@@ -3,8 +3,9 @@ import {Link} from "react-router-dom";
 import UserStore from "../login-signup/UserStore";
 
 function ViewFake(){
-
+    console.log(UserStore.userId)
     return (
+
         <html>
         <div className="App">
 
@@ -24,7 +25,7 @@ function ViewFake(){
                         </a>
                     </Link>
                 </header>)}
-            {(UserStore.userId.groups.name === "user") && (
+            {(UserStore.userId=== "user") && (
                 <header className="App-header">
                     <p>
                         You should not be here, my lovely user :)
@@ -40,7 +41,7 @@ function ViewFake(){
                         </a>
                     </Link>
                 </header>)}
-            {(UserStore.userId.groups.name === "admin") && (
+            {(UserStore.userId === "admin") && (
                 <header className="App-header">
                     <p>
                         Welcome Master.
