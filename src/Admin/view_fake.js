@@ -23,7 +23,7 @@ function ViewFake(){
                             some evil plans
                         </a>
                     </Link>
-
+                </header>
         </div>
         </html>)
 
