@@ -8,11 +8,9 @@ function AdminFake(){
         <html>
         <div className="App">
             <header className="App-header">
-                {UserStore.userId !== "admin" ? <p>
+                <p>
                     Not that easy honey. Try again.
-                </p> : <p>
-                    Wrong url, master.
-                </p> }
+                </p>
                 <Link to="/">
                     <a
                         className="App-link"

@@ -8,11 +8,9 @@ function Admin(){
         <html>
         <div className="App">
             <header className="App-header">
-                {UserStore.userId !== "admin" ? <p>
+                <p>
                     Well, you got me. I surrender.
-                </p> : <p>
-                    I love you, master.
-                </p> }
+                </p>
                 <Link to="/view">
                     <a
                         className="App-link"

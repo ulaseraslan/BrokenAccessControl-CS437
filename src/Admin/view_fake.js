@@ -9,39 +9,6 @@ function ViewFake(){
         <html>
         <div className="App">
 
-            {(UserStore.userId === "-2") && (
-                <header className="App-header">
-                    <p>
-                        Sorry honey, please login first :)
-                    </p>
-                    <Link to="/login">
-                        <a
-                            className="App-link"
-                            href="localhost:3000/login"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Login
-                        </a>
-                    </Link>
-                </header>)}
-            {(UserStore.userId=== "user") && (
-                <header className="App-header">
-                    <p>
-                        You should not be here, my lovely user :)
-                    </p>
-                    <Link to="/home">
-                        <a
-                            className="App-link"
-                            href="localhost:3000/home"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Go Home
-                        </a>
-                    </Link>
-                </header>)}
-            {(UserStore.userId === "admin") && (
                 <header className="App-header">
                     <p>
                         Welcome Master.
@@ -56,7 +23,6 @@ function ViewFake(){
                             some evil plans
                         </a>
                     </Link>
-                </header>)}
 
         </div>
         </html>)
