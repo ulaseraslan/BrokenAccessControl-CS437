@@ -8,10 +8,7 @@ page (admin_getappInfo).
 https://example.com/app/getappInfo
 https://example.com/app/admin_getappInfo
 If an unauthenticated user can access either page, it's a flaw.
-If a non-admin (any user) can access the admin page, this is a flaw.(Python
-Django application is preferred)
-(Two different demonstration here for both unauthenticated user and
-non-admin user)
+If a non-admin (any user) can access the admin page, this is a flaw.
 
 (2) You are asked to write another version of the code that simply protects
 the application for broken access control.(Python Django application is
